@@ -1,3 +1,4 @@
+import ReactStarsRating from 'react-awesome-stars-rating';
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 const Card = () => {
@@ -31,8 +32,8 @@ const Card = () => {
               <div
                 className="text-center flex flex-col items-center justify-center h-full text-gray-800 px-2 pb-24"
               >
-                <h1 className="text-3xl font-semibold">{show.show.name}</h1>
-                <p className="my-2">9.0 Rating</p>
+                <h1 className="text-3xl font-semibold">{show.show.name}</h1> 
+    {show.show.rating?.average ? <div className='flex-col-reverse'><ReactStarsRating className='flex gap-0.5' value={show.show.rating?.average / 2 || 0} /></div> : <p>Not Rated</p>}
                 <p><span className='font-semibold'>Genre: </span>{show.show?.genres.map((genre, index) =><span key={index}>{genre} </span>)}</p>
                 <p><span className='font-semibold'>Runtime:</span> {show.show?.runtime} Minute</p>
                 <p><span className='font-semibold'>Language:</span> {show.show?.language}</p>
